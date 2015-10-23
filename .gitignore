@@ -1,2 +1,6 @@
-# Ingore the python Cache file
-__pycache__/
+# Ingore everything beginning with a dot
+.*
+__pycache__
+
+# except . . . 
+!.gitignore
