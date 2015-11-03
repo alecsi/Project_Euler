@@ -1,4 +1,11 @@
+import collections
+
 #seive of eratosthenes
+
+
+default_seive = list(primes(10000000))
+"""use a seive up to 10 million as a default, as this calcs fast enough to be useful"""
+
 
 def primes(n):
     """returns a range object of primes up to and including n caluclated using a seive of Eratosthenes"""
@@ -14,3 +21,34 @@ def primes(n):
 
 
 #create a set from the fuction return and use the 'in primes_set' to create a fast prime check.
+
+def is_prime(x):
+
+    if isinstance(x, int):
+        return is_prime_number(x)
+    elif isinstance(x, collections.Iterable):
+        output = True
+        for y in x:
+           if is_prime_number(y) == False:
+                return False
+            
+        return True 
+
+
+def is_prime_number(x):
+    """tests for primality using a seive up to root x"""
+
+#    seive = primes(int(x**0.5))
+    root_x = int(x**0.5)
+   
+    for p in default_seive:
+        if p > root_x:
+#            print(p)
+            return True
+        elif x % p == 0:
+#            print(p)
+            return False
+
+    return
+
+
