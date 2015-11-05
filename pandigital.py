@@ -15,6 +15,6 @@ def is_pandigital(x):
 def is_pandigital_number(x):
 
     x = sorted(list(str(x)))
-    return x == ['1','2','3','4','5','6','7','8','9'] 
+    return x == ['1','2','3','4','5','6','7','8','9'][:len(x)] 
     
 
