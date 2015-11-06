@@ -3,8 +3,6 @@ import collections
 #seive of eratosthenes
 
 
-default_seive = list(primes(10000000))
-"""use a seive up to 10 million as a default, as this calcs fast enough to be useful"""
 
 
 def primes(n):
@@ -52,3 +50,5 @@ def is_prime_number(x):
     return
 
 
+default_seive = list(primes(10000000))
+"""use a seive up to 10 million as a default, as this calcs fast enough to be useful"""
