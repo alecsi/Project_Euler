@@ -1,4 +1,5 @@
 import collections
+import itertools
 
 def digit_set(n):
     """good if you want the set, ie repeated elements are removed"""
@@ -23,4 +24,12 @@ def digit_counter(n):
 
     return d_counter
 
+def perms(n):
+    """returns the set of permutations of n"""
+    def f(x):
+        return int(''.join(x))
+
+    return map(f,itertools.permutations(str(n)))
+
+    
 

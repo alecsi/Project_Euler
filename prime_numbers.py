@@ -2,9 +2,6 @@ import collections
 
 #seive of eratosthenes
 
-
-
-
 def primes(n):
     """returns a range object of primes up to and including n caluclated using a seive of Eratosthenes"""
 
@@ -29,8 +26,8 @@ def is_prime(x):
         for y in x:
            if is_prime_number(y) == False:
                 return False
-            
-        return True 
+
+        return True
 
 
 def is_prime_number(x):
@@ -38,7 +35,7 @@ def is_prime_number(x):
 
 #    seive = primes(int(x**0.5))
     root_x = int(x**0.5)
-   
+
     for p in default_seive:
         if p > root_x:
 #            print(p)
@@ -50,5 +47,28 @@ def is_prime_number(x):
     return
 
 
-default_seive = list(primes(10000000))
+default_seive = sorted(list(primes(10000000)))
 """use a seive up to 10 million as a default, as this calcs fast enough to be useful"""
+
+def number_of_distinct_prime_factors(n, prime_position = 0, set_of_factors = None):
+
+    if set_of_factors == None:
+        set_of_factors = set()
+
+    if n == 1:
+        return len(set_of_factors)
+    else:
+        p = default_seive[prime_position]
+        if p > n ** 0.5 + 0.1:
+            set_of_factors.add(n)
+            return len(set_of_factors)
+        elif n % p == 0:
+            set_of_factors.add(p)
+            return number_of_distinct_prime_factors(n//p, prime_position, set_of_factors)
+        else:
+            return number_of_distinct_prime_factors(n, prime_position+1,set_of_factors)
+
+
+    
+
+
