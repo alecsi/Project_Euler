@@ -33,21 +33,23 @@ def is_prime(x):
 def is_prime_number(x):
     """tests for primality using a seive up to root x"""
 
-#    seive = primes(int(x**0.5))
-    root_x = int(x**0.5)
+    if x < max_precalc:
+        return x in primes_set
+    else:
+        root_x = int(x**0.5)
 
-    for p in default_seive:
-        if p > root_x:
-#            print(p)
-            return True
-        elif x % p == 0:
-#            print(p)
-            return False
+        for p in default_seive:
+            if p > root_x:
+                return True
+            elif x % p == 0:
+                return False
 
-    return
+    return 'error: prime too big' 
 
-
-default_seive = sorted(list(primes(10000000)))
+max_precalc = 10**7
+primes_iter = primes(max_precalc)
+default_seive = sorted(list(primes_iter))
+primes_set = set(default_seive)
 """use a seive up to 10 million as a default, as this calcs fast enough to be useful"""
 
 def number_of_distinct_prime_factors(n, prime_position = 0, set_of_factors = None):
@@ -71,4 +73,8 @@ def number_of_distinct_prime_factors(n, prime_position = 0, set_of_factors = Non
 
     
 
+def prime_sum(n):
+    """returns the sum of the first n primes"""
+
+    return sum(default_seive[:n])
 

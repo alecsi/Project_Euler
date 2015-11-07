@@ -4,14 +4,12 @@ import itertools
 def digit_set(n):
     """good if you want the set, ie repeated elements are removed"""
 
-    n = int(n)
-    digit_set = set()
-    while n > 0:
-        digit_set.add(n % 10)
-        n = (n - (n % 10)) // 10
+    return set(map(int,(list(str(n))))) 
 
-    return digit_set
+def digit_list(n):
+    """returns a list of the digits of n"""
 
+    return list(map(int,(list(str(n)))))
 
 def digit_counter(n):
     """good if you want to keep repeated elements but don't care about order"""
