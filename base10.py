@@ -11,6 +11,12 @@ def digit_list(n):
 
     return list(map(int,(list(str(n)))))
 
+def digit_multiset(n):
+    """returns the multiset dict of n, good if you care about repeated digits"""
+
+    return collections.Counter(map(int,(list(str(n)))))
+
+
 def digit_counter(n):
     """good if you want to keep repeated elements but don't care about order"""
 
