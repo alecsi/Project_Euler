@@ -46,6 +46,18 @@ def is_prime_number(x):
 
     return 'error: prime too big' 
 
+
+def prime_subset(s):
+    """returns the subset of s consisting of prime numbers"""
+
+    subset = set()
+    for n in s:
+        if is_prime_number(n):
+            subset.add(n)
+
+    return subset
+
+
 max_precalc = 10**7
 primes_iter = primes(max_precalc)
 default_seive = sorted(list(primes_iter))
